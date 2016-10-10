@@ -35,7 +35,8 @@ public class _CordovaPlugin extends CordovaPlugin {
     }
 
     private void StartRec() {
-        MediaProjection mediaProjection = mMediaProjectionManager.getMediaProjection(resultCode, data);
+        Intent intent=mMediaProjectionManager.createScreenCaptureIntent();
+        MediaProjection mediaProjection = mMediaProjectionManager.getMediaProjection(-1, intent);
         if (mediaProjection == null) {
             Log.e("@@", "media projection is null");
             return;
