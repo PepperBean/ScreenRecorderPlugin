@@ -12,8 +12,6 @@ import android.util.Log;
 import android.app.Activity;
 import android.content.Intent;
 
-import org.apache.cordova.api.CordovaPlugin;
-
 import java.io.File;
 
 public class _CordovaPlugin extends CordovaPlugin {
