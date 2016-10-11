@@ -8,9 +8,11 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Bundle;
 import android.os.Environment;
-
+import android.util.Log;
 import android.app.Activity;
 import android.content.Intent;
+
+import org.apache.cordova.api.CordovaPlugin;
 
 import java.io.File;
 
@@ -36,7 +38,7 @@ public class _CordovaPlugin extends CordovaPlugin {
 
     private void StartRec() {
         Intent intent=mMediaProjectionManager.createScreenCaptureIntent();
-        MediaProjection mediaProjection = mMediaProjectionManager.getMediaProjection(-1, intent);
+        MediaProjection mediaProjection = mMediaProjectionManager.getMediaProjection(Activity.RESULT_OK, intent);
         if (mediaProjection == null) {
             Log.e("@@", "media projection is null");
             return;
