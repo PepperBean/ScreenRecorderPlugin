@@ -35,7 +35,10 @@ public class _CordovaPlugin extends CordovaPlugin {
     }
 
     private void StartRec() {
-        Intent intent=mMediaProjectionManager.createScreenCaptureIntent();
+        if (mMediaProjectionManager == null) {
+            mMediaProjectionManager = (MediaProjectionManager) getSystemService(MEDIA_PROJECTION_SERVICE);
+        }
+        Intent intent = mMediaProjectionManager.createScreenCaptureIntent();
         MediaProjection mediaProjection = mMediaProjectionManager.getMediaProjection(Activity.RESULT_OK, intent);
         if (mediaProjection == null) {
             Log.e("@@", "media projection is null");
@@ -52,7 +55,10 @@ public class _CordovaPlugin extends CordovaPlugin {
     }
 
     private void StopRec() {
-        mRecorder.quit();
-        mRecorder = null;
+        if (mRecorder != null) {
+            mRecorder.quit();
+            mRecorder = null;
+        }
+
     }
 }
