@@ -33,5 +33,16 @@
         <source-file src="src/android/_CordovaPlugin.java" target-dir="src/com/pepperbean/plugin/"/>
         <source-file src="src/android/ScreenRecorder.java" target-dir="src/com/pepperbean/plugin/"/>
     </platform>
+  <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="_CordovaPlugin">
+                    <param name="ios-package" value="_CordovaPlugin" />
+                </feature>
+            </config-file>
 
+            <header-file src="src/ios/ASScreenRecorder.h" />
+            <source-file src="src/ios/ASScreenRecorder.m" />
+            <header-file src="src/ios/_CordovaPlugin.h" />
+            <source-file src="src/ios/_CordovaPlugin.m" />
+        </platform>
 </plugin>
