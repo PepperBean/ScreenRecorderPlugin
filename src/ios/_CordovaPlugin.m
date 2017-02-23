@@ -16,6 +16,8 @@ ASScreenRecorder *recorder;
     if (!recorder.isRecording) {
     	[recorder startRecording];
          NSLog(@"Start recording");
+         CDVPluginResult * result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"start"];
+            [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }
 }
 
